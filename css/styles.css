@@ -1,0 +1,468 @@
+:root {
+    --dark-purple: #5F0F40;
+    --orange: #EB854F;
+    --light-purple: #A79AB2;
+    --page-color: #EDEADC;
+    --accent-color: #C0E6DE;
+}
+
+@font-face {
+    font-family: headerFont;
+    src: url(../content/Kalnia-VariableFont_wdth\,wght.ttf);
+}
+@font-face {
+    font-family: menutitlefont;
+    src: url(../content/KaiseiOpti-Regular.ttf);
+}
+body {
+    background-color: var(--page-color);
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+main{
+    margin-top: 10vh;
+}
+h1{
+    font-size: 6rem;
+    font-family: headerFont;
+    color: var(--orange);
+    margin: 0;
+    line-height: 6rem;
+    margin-top: 3vh;
+    margin-left: 5px;
+}
+h2{
+    font-family: menutitlefont;
+}
+header {
+    margin: 0;  
+    background-color: var(--dark-purple); 
+    height: 45vh; /* Consider adjusting based on content */
+    display: flex; 
+    flex-direction: column; 
+    padding-bottom: 20px; 
+}
+
+.header-content {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; /* Center items vertically */
+    height: 100%; 
+}
+
+.headimg {
+    height: 100%; 
+    width: 50vw; 
+    object-fit: cover; 
+    max-width: 100%; /* Prevent overflow */
+}
+
+button {
+    background-color: var(--light-purple); 
+    border: none; 
+    font-family: menutitlefont; 
+}
+
+a {
+    font-family: menutitlefont; 
+    text-decoration: none; 
+    color: black; 
+    font-size: 1rem; 
+}
+
+.menu {
+    background-color: var(--light-purple); 
+    padding: 15px; 
+    display: flex; 
+    align-items: center; 
+    height: auto; /* Use auto to allow for dynamic height */
+}
+
+.menu button {
+    margin: 10px; 
+}
+
+#pageSearch {
+    background-color: var(--accent-color); 
+    padding: 15px; 
+    border-radius: 10px; 
+    margin-left: auto; 
+    color: white; 
+}
+
+footer {
+    display: flex; 
+    background-color: var(--light-purple); 
+    height: 7vh; /* Ensure this fits your content */
+    justify-content: space-around; 
+    padding: 10px; /* Use padding for consistent spacing */
+    font-family: menutitlefont; 
+    margin-top: 10vh;
+}
+
+/*INDEX PAGE*/
+.pageTitle {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px;
+    margin-top: 10vh; /* Ensure there's space above the page title */
+}
+
+
+.pageTitle a {
+    margin: 15px;
+}
+
+/* Container for the recipe cards */
+.topRecipes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30vw, 1fr)); /* Create a flexible 2-column grid */
+    gap: 20px; /* Space between the cards */
+    margin: 0 auto; /* Center the grid */
+    max-width: 1200px; /* Optional: Limit the width of the container */
+    padding: 20px;
+  }
+  
+  /* Recipe card styles */
+  .recipe-card-horizontal {
+    display: flex;
+    flex-direction: row;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%; /* Make sure the card takes the full width of the grid item */
+    max-width: 100%; /* Ensure no overflow */
+  }
+  .recipe-card-horizontal:hover{
+    scale: 1.05;
+  }
+  /* Image styles */
+  .recipe-image-horizontal {
+    width: 40%;
+    object-fit: cover;
+    height: auto;
+  }
+  
+  /* Details section */
+  .recipe-details-horizontal {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%;
+  }
+  
+  .recipe-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .cook-time, .servings, .cuisine {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  /* Media query for smaller screens (tablets and mobile) */
+  @media screen and (max-width: 768px) {
+    .topRecipes {
+      grid-template-columns: 1fr; /* Switch to a single column layout on smaller screens */
+    }
+  
+    .recipe-card-horizontal {
+      flex-direction: column; /* Stack image and details vertically */
+    }
+  
+    .recipe-image-horizontal {
+      width: 100%; /* Full width for the image */
+      height: auto;
+    }
+  
+    .recipe-details-horizontal {
+      width: 100%; /* Full width for the details */
+      padding: 15px;
+    }
+  
+    .recipe-title {
+      font-size: 22px;
+    }
+  
+    .cook-time, .servings, .cuisine {
+      font-size: 14px;
+    }
+  }
+  
+/*ABOUT PAGE*/
+.abtcontent {
+    display: flex; /* Use flexbox for layout */
+    align-items: flex-start; /* Align items to the start of the container */
+    justify-content: center;
+    margin: 20px; /* Add margin for spacing */
+    margin-top: 19vh;
+}
+
+.abtcontent img {
+    width: 30vw; /* Adjust the image width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 20px; /* Space between the image and text */
+}
+
+.text-content {
+    display: flex; /* Use flexbox for the text container */
+    flex-direction: column; /* Stack elements vertically */
+    width: 40vw;
+}
+
+.text-content h2 {
+    margin: 0; /* Remove default margin */
+}
+
+.text-content p {
+    margin: 10px 0; /* Space between paragraphs */
+}
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 25%;
+    background-color: var(--orange);
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    color: var(--dark-purple);
+}
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.filter {
+    margin-bottom: 15px;
+    background-color: var(--orange);
+}
+
+/* Recipe Grid Styles */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Recipe Grid Styles */
+.recipes {
+    flex: 1;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr; /* Default single column */
+    gap: 20px;
+}
+
+.recipe-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Default vertical layout */
+    height: 20vh;
+}
+.recipe-card:hover{
+    scale: 1.05;
+}
+.recipeimg {
+    width: 200px;
+    height: 100%;
+    border-bottom: 4px solid #333;
+    background-image: url(../content/meal_happy.jpg); 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+}
+
+.recipe-details {
+    padding: 15px;
+}
+
+.recipe-details h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+/*RECIPE PAGE*/
+.recipe-container{
+    display: grid;
+    grid-template-columns: 1, 1, 1, 1;
+}
+.recipe-content{
+    grid-column-start: 2 ;
+}
+
+@media screen and (min-width: 1206px) {
+    .recipes {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .recipe-card {
+        flex-direction: row; 
+        align-items: center;
+    }
+
+    .recipe-details {
+        flex: 1; 
+        padding: 20px;
+    }
+    
+}
+
+@media screen and (max-width: 1206px) {
+   main{
+    margin-top: 7vh;
+   }
+   .abtcontent{
+    display: block;
+    margin-top: 20vh;
+   }
+ 
+
+.abtcontent img {
+    display: block;
+    width: 40vw; /* Adjust the image width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: auto;
+}
+
+.text-content {
+    display: block; /* Use flexbox for the text container */
+    margin: auto;
+    width: 60vw;
+}
+.text-content h2{
+    margin-top: 20px;
+    text-align: center;
+}
+    .header{
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+    .sidebar {
+        width: 100%;
+        height: 10vh; /* Changed height for smaller screens */
+        display: flex; /* Horizontal layout for filters */
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px;
+        position: sticky;
+        top: 0;
+        z-index: 1000; /* Ensure it's on top */
+        background-color: var(--orange);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .filter {
+        flex: 1;
+        margin: 0 5px;
+    }
+
+    .filter label {
+        display: none;  /* Hide labels on mobile to make it more compact */
+    }
+
+    select {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .recipes {
+        grid-template-columns: 1fr;  /* Stack recipes in a single column on mobile */
+    }
+    .recipe-card {
+        height: 30vh;
+    }
+    .recipes {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    .recipeimg{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 600px) {
+    h2{
+        font-size: medium;
+    }
+    h1{
+        font-size: 4rem;
+    }
+    main{
+        margin-top: 7vh;
+    }
+    .pageTitle{
+        margin-top: 15vh;
+    }
+    .abtcontent img {
+        display: block;
+        width: 60vw; /* Adjust the image width as needed */
+        height: auto; /* Maintain aspect ratio */
+        margin: auto;
+    }
+    
+    .text-content {
+        display: block; /* Use flexbox for the text container */
+        margin: auto;
+        width: 70vw;
+    }
+    .text-content h2{
+        margin-top: 20px;
+        text-align: center;
+    }
+    .heading{
+        display: none;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+    }
+
+    .sidebar {
+        width: 100%;
+        display: flex; /* Horizontal layout for filters */
+        justify-content: space-around;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000; /* Ensure it's on top */
+        background-color: var(--orange);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .filter {
+        flex: 1;
+        margin: 0 5px;
+    }
+
+    .filter label {
+        display: none;  /* Hide labels on mobile to make it more compact */
+    }
+
+    select {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .recipes {
+        grid-template-columns: 1fr;  /* Stack recipes in a single column on mobile */
+    }
+}
