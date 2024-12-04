@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="header-content">
-            <a href="./index.html" style="text-decoration: none; color: inherit;"><h1>Cook<br>With<br>Me</h1></a>
+            <a href="./index.php" style="text-decoration: none; color: inherit;"><h1>Cook<br>With<br>Me</h1></a>
             <img class="headimg" src="./content/AdobeStock_235582346.jpeg">
         </div>
         <div class="menu">
@@ -17,6 +17,20 @@
             <a href="./all-recipesTwo.html"><button>All Recipes</button></a>
         </div>
     </header>
+    <?php
+       include 'includes/db-connection.php';
+
+        $recipe_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+
+        if ($recipe_id > 0) {
+
+            $sql_query = "SELECT * FROM recipes WHERE id = $recipe_id";
+            $result = mysqli_query($connection, $sql_query);
+
+            if ($result && mysqli_num_rows($result) > 0) {
+                $recipe = mysqli_fetch_assoc($result);
+
+        ?>
         <div class="recipe-container">
             <div class="ingredients">
                 <h3>Ingredients</h3>
@@ -69,6 +83,13 @@
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, fugit! Eligendi, maxime neque magnam natus, beatae minus ea modi provident at sed ex animi! Quam dolore impedit omnis repellendus autem!</p>    
                 </div>
             </div>
+            <?php 
+               } else{ ?> 
+                <p> Recipe Not Found</p>
+            <?php   }
+                } else { ?>
+                    <p> Invalid Recipe ID</p>
+            <?php } ?>
     <footer></footer>
 </body>
 </html>

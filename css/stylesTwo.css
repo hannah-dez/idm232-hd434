@@ -108,6 +108,7 @@ a{
     color: black;
     font-style: none;
     text-decoration: none;
+    height: 100%;
 }
 .recipe-card:hover{
     transform: scale(1.1);
@@ -166,6 +167,8 @@ a{
     border-radius: 1.1vw;
     align-items: center;
     overflow: hidden;
+    height: 100%;
+    margin: 10px;
 }
 .recipe-card-small p{
     align-self: center;
