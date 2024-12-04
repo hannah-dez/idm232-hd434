@@ -45,6 +45,9 @@
                     <li>Ingredient 8</li>
                 </ul>
             </div>
+            <?php
+            $step_image
+            ?>
             <div class="recipe-heading">
                 <h2>Recipe Title</h2>
                 <h3>Subheading Information blah blah blah</h3>
