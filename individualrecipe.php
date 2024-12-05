@@ -14,7 +14,7 @@
         </div>
         <div class="menu">
             <a href="./aboutTwo.html"><button>About</button></a>
-            <a href="./all-recipesTwo.html"><button>All Recipes</button></a>
+            <a href="./all-recipesTwo.php"><button>All Recipes</button></a>
         </div>
     </header>
     <?php
@@ -35,57 +35,43 @@
             <div class="ingredients">
                 <h3>Ingredients</h3>
                 <ul>
-                    <li>Ingredient 1</li>
-                    <li>Ingredient 2</li>
-                    <li>Ingredient 3</li>
-                    <li>Ingredient 4</li>
-                    <li>Ingredient 5</li>
-                    <li>Ingredient 6</li>
-                    <li>Ingredient 7</li>
-                    <li>Ingredient 8</li>
+                    <?php 
+                        $ingredients = preg_split("/\r\n|\n|\r/", $recipe["ingredients"]);
+                        foreach ($ingredients as $ingredient): 
+                        ?>
+                            <li><?php echo $ingredient; ?></li>
+                    <?php endforeach; ?>
                 </ul>
+                <p>Cook Time: <?php echo ($recipe ["cooktime"])?>Min</p>
+                <p><?php echo ($recipe ["servings"])?> Servings</p>
             </div>
             <?php
-            $step_image
+            $step_images = explode("*", $recipe ["stepimg"]);
+            $steps_array = explode("*", $recipe ["steps"]);
             ?>
             <div class="recipe-heading">
-                <h2>Recipe Title</h2>
-                <h3>Subheading Information blah blah blah</h3>
-                <img class="recipe-head-img" src="./content/AdobeStock_235582346.jpeg">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste est ea vero dolorum corrupti labore at maiores. Unde sed corrupti sequi maxime, consectetur vero laudantium cum consequatur ut nihil aperiam.Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste est ea vero dolorum corrupti labore at maiores. Unde sed corrupti sequi maxime, consectetur vero laudantium cum consequatur ut nihil aperiam.</p>
+                <h2><?php echo ($recipe ["title"])?></h2>
+                <h3><?php echo ($recipe ["subtitle"])?></h3>
+                <img class="recipe-head-img" src="<?php echo ($recipe ["mainimg"])?>.webp">
+                <p class="description-text"><?php echo ($recipe ["description"])?></p>
                 <div class="recipe-seperator"></div>
             </div>
-                <img class="step-img step1" src="./content/AdobeStock_235582346.jpeg">
-                <div class="step-text step1">
-                    <h3>Step 1</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse vitae quos, doloremque iusto libero odit doloribus ipsam velit nihil modi error quaerat sint obcaecati at neque aliquid corrupti temporibus. Ea.</p>    
-                </div>
-                <img class="step-img step2" src="./content/AdobeStock_235582346.jpeg">
-                <div class="step-text step2">
-                    <h3>Step 2</h3>
-                    <P>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae non iure sunt suscipit sapiente deleniti quod provident atque ad quas, odio voluptatum porro. Deserunt eligendi, placeat corporis dignissimos at blanditiis!</P>    
-                </div>
-                <img class="step-img step3" src="./content/AdobeStock_235582346.jpeg">
-                <div class="step-text step3">
-                    <h3>Step 3</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi illum harum dolores aspernatur, sunt reiciendis optio eligendi consequuntur ipsam qui temporibus facere rerum repellat quisquam atque animi in amet quam.</p>
-                </div>
-                <img class="step-img step4" src="./content/AdobeStock_235582346.jpeg">
-                <div class="step-text step4">
-                    <h3>Step 4</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga animi eaque sunt dolores debitis libero dicta dolor voluptas aliquam dolorem doloremque maiores quae, non suscipit assumenda commodi ex pariatur neque.</p>    
-                </div>
-                <img class="step-img step5" src="./content/AdobeStock_235582346.jpeg">
-                <div class="step-text step5">
-                    <h3>Step 5</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, optio sed omnis earum, nostrum quos, odit placeat obcaecati molestiae ipsa voluptate asperiores nemo voluptatibus odio aliquid aspernatur non maiores minima.</p>    
-                </div>
-                <img class="step-img step6" src="./content/AdobeStock_235582346.jpeg">
-                <div class="step-text step6">
-                    <h3>Step 6</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut, fugit! Eligendi, maxime neque magnam natus, beatae minus ea modi provident at sed ex animi! Quam dolore impedit omnis repellendus autem!</p>    
-                </div>
+                <?php 
+                    foreach ($steps_array as $index => $step){
+                        $step_parts = explode ("--", $step);
+                        $step_title = isset($step_parts[0]) ? trim($step_parts [0]) : '';
+                        $step_description = isset($step_parts[1]) ? trim($step_parts[1]) : '';
+                        $step_image = isset($step_images[$index]) && !empty($step_images[$index])  ? trim($step_images [$index]): $recipe["mainimg"];
+                     ?>
+                <img class="step-img step<?php echo $index + 1; ?>" src="<?php echo ($step_image);?>.webp">
+            <div class="step-text step<?php echo $index + 1; ?>">
+                <h3><?php echo ($step_title);?></h3>
+                <p><?php echo ($step_description);?></p>    
             </div>
+            <?php
+             }
+            ?>
+        </div>
             <?php 
                } else{ ?> 
                 <p> Recipe Not Found</p>

@@ -41,7 +41,7 @@
             foreach($all_recipes as $recipe){ 
                 $short_description = strlen($recipe["description"]) > 200 ? substr($recipe["description"], 0, 200) . "..." : $recipe["description"];
                 ?>
-                <a href="./individualrecipe.html">
+                <a href="individualrecipe.php?id=<?php echo ($recipe ["id"])?>">
                     <div class="recipe-card">
                         
                         <img src="<?php echo ($recipe ["mainimg"])?>.webp">
