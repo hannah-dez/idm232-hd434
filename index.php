@@ -30,8 +30,8 @@
             <img class="headimg" src="./content/AdobeStock_235582346.jpeg">
         </div>
         <div class="menu">
-            <a href="./aboutTwo.html"><button>About</button></a>
-            <a href="./all-recipesTwo.php"><button>All Recipes</button></a>
+            <a href="./abouttwo.html"><button>About</button></a>
+            <a href="./all-recipestwo.php"><button>All Recipes</button></a>
             <a href="#searchbar"><button>Search</button></a>
         </div>
     </header>
