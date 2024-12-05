@@ -120,7 +120,7 @@ a{
     gap: 20px;
 }
 .search{
-    margin-left: 40% ;
+    margin-left: 15px ;
     width: fit-content;
     background-color: var(--accent-color);
     border: none;
@@ -229,7 +229,9 @@ a{
     margin-top: 20vh;
 }
 
-
+.recipe-search-result{
+    height: 50%;
+}
 /*----------------------------------------------Individual Recipe Page---------------------------------------------------*/
 .recipe-container{
     display: grid;
@@ -294,6 +296,11 @@ a{
 }
 .no-results-space{
     height: 100%;
+}
+.invalid-message{
+    display: block;
+    margin-bottom: 50%;
+    justify-self: center;
 }
 /*------------------------------------------------Home Page----------------------------------------------------------*/
 @media(max-width:1145px){
@@ -401,7 +408,7 @@ a{
         gap: 20px;
     }
     .search{
-        margin-left: 35% ;
+        margin-left: 15px ;
         width: fit-content;
         background-color: var(--accent-color);
         border: none;
@@ -433,7 +440,7 @@ a{
     gap: 20px;
 }
 .search{
-    margin-left: 40% ;
+    margin-left: 15px ;
     width: fit-content;
     background-color: var(--accent-color);
     border: none;
@@ -474,6 +481,10 @@ a{
 .recipe-card-small{
     max-width: 30vw;
 }
+/*Individual Recipe Page*/
+.invalid-message{
+    margin-bottom: 70%;
+}
 }
 
 @media (max-width:720px){
@@ -502,7 +513,7 @@ a{
         gap: 20px;
     }
     .search{
-        margin-left: 25% ;
+        margin-left: 15px ;
         width: fit-content;
         background-color: var(--accent-color);
         border: none;

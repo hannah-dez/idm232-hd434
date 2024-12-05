@@ -75,10 +75,10 @@
         </div>
             <?php 
                } else{ ?> 
-                <p> Recipe Not Found</p>
+                <h2 class="invalid-message"> Recipe Not Found</h2>
             <?php   }
                 } else { ?>
-                    <p> Invalid Recipe ID</p>
+                    <h2 class="invalid-message"> Invalid Recipe ID</h2>
             <?php } ?>
     <footer></footer>
 </body>

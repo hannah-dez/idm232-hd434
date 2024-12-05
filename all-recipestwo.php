@@ -14,12 +14,26 @@
     // Query to fetch the first row
     $sql = "SELECT * FROM recipes";
     $result = $connection->query($sql);
+    
+    $search_query = isset($_GET['search']) ? trim($_GET['search']) : '';
+    $filtered_recipes = [];
     $all_recipes = [];
 
     if ($result && mysqli_num_rows($result)>0) //if you have results more than zero it shows
     {
         while($row = mysqli_fetch_assoc($result)){
-            $all_recipes[] = $row;
+           $matches_search = !$search_query || (
+                stripos($row ['title'], $search_query) !== false ||
+                stripos($row ['subtitle'], $search_query) !== false ||
+                stripos($row ['description'], $search_query) !== false ||
+                stripos($row ['cooktime'], $search_query) !== false
+           );
+           if (empty($search_query)){
+             $all_recipes[] = $row;
+           }
+            else if($matches_search) {
+                $filtered_recipes [] =$row;
+            }
         }
     }
     ?>
@@ -31,6 +45,11 @@
         <div class="menu">
             <a href="./abouttwo.html"><button>About</button></a>
             <a href="./all-recipestwo.php"><button>All Recipes</button></a>
+            <form   action="all-recipestwo.php" method="get">
+                <input type="text" class="search-input search" name="search" placeholder="Search...">
+                <button class="submit-button" type="submit">SEARCH</button>
+            </form>
+        </div>
         </div>
     </header>
     <main>
@@ -68,9 +87,10 @@
        </aside>
        <div class="allrecipe-grid">
         <?php
-       foreach($all_recipes as $recipe){ ?>
-        <a href="individualrecipe.php?id=<?php echo ($recipe ["id"])?>">
-            <div class="recipe-card-small">
+            if (!empty($filtered_recipes)){
+                foreach($filtered_recipes as $recipe){ ?>
+                <a href="individualrecipe.php?id=<?php echo ($recipe ["id"])?>">
+            <div class="recipe-card-small recipe-search-result">
                 <img src="<?php echo ($recipe["mainimg"])?>.webp">
                 <h3 class="recipe-title"><?php echo ($recipe ["title"])?></h3>
                 <p><?php echo ($recipe ["servings"])?> Servings</p>
@@ -78,7 +98,26 @@
                 <p><?php echo ($recipe ["categories"])?></p>
             </div>
         </a>
-       <?php } ?>
+        <?php } } 
+                else if (!empty($search_query) && empty($filtered_recipes)) { 
+                    ?>
+                    <h2>No Recipe Found</h2>
+                    <?php
+                } else {
+                foreach($all_recipes as $recipe){ ?>
+                    <a href="individualrecipe.php?id=<?php echo ($recipe ["id"])?>">
+                        <div class="recipe-card-small">
+                            <img src="<?php echo ($recipe["mainimg"])?>.webp">
+                            <h3 class="recipe-title"><?php echo ($recipe ["title"])?></h3>
+                            <p><?php echo ($recipe ["servings"])?> Servings</p>
+                            <p><?php echo ($recipe ["cooktime"])?> Min</p>
+                            <p><?php echo ($recipe ["categories"])?></p>
+                        </div>
+                    </a>
+                   <?php } 
+        } ?>
+
+       
        </div> 
     </div>
    </main>
