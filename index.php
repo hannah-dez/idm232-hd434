@@ -32,6 +32,7 @@
         <div class="menu">
             <a href="./aboutTwo.html"><button>About</button></a>
             <a href="./all-recipesTwo.php"><button>All Recipes</button></a>
+            <a href="#searchbar"><button>Search</button></a>
         </div>
     </header>
     <main class="homepage">
@@ -43,7 +44,6 @@
                 ?>
                 <a href="individualrecipe.php?id=<?php echo ($recipe ["id"])?>">
                     <div class="recipe-card">
-                        
                         <img src="<?php echo ($recipe ["mainimg"])?>.webp">
                         <h3 class="recipe-title"><?php echo ($recipe ["title"]) ?></h3>
                         <p><?php echo( $short_description) ?></p>
@@ -52,10 +52,64 @@
                         <p><?php echo ($recipe ["categories"])?></p>
                     </div>
                 </a>
-            <?php } ?>
-            
-            
+            <?php } ?> 
         </div>
+        <?php
+        $searchQuery = isset($_GET['query']) ? trim($_GET['query']) : '';
+        $searchResults = [];
+        
+        if ($searchQuery) {
+            // Prepare the SQL query
+            $sql = "SELECT * FROM recipes WHERE title LIKE ? OR description LIKE ?";
+            $stmt = $connection->prepare($sql);
+            $searchTerm = '%' . $searchQuery . '%';
+            $stmt->bind_param("ss", $searchTerm, $searchTerm);
+            $stmt->execute();
+            $result = $stmt->get_result();
+        
+            // Fetch the results
+            while ($row = $result->fetch_assoc()) {
+                $searchResults[] = $row;
+            }
+        
+            $stmt->close();
+        }
+        
+        $connection->close();
+    ?>
+        <div class="search" id="searchbar">
+            <h2>Search</h2>
+            <form method="GET">
+                <input type="text" name="query" placeholder="What would you like to make? .." value="<?php echo isset($_GET['query']) ? htmlspecialchars($_GET['query']) : ''; ?>">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <?php 
+            if ($searchQuery): ?>
+            <h2 class="search-title">Search Results for "<?php echo htmlspecialchars($searchQuery); ?>"</h2>
+                
+                    <?php if (count($searchResults) > 0): ?>
+                        <div class="recipe-card-search">
+                            <?php foreach ($searchResults as $recipe): 
+                                $short_description = strlen($recipe["description"]) > 200 ? substr($recipe["description"], 0, 200) . "..." : $recipe["description"];
+                                ?>
+                                <a href="individualrecipe.php?id=<?php echo ($recipe["id"]); ?>">
+                                    <div class="recipe-card-small">
+                                        <img src="<?php echo ($recipe["mainimg"]); ?>.webp" alt="Recipe Image">
+                                        <h3 class="recipe-title"><?php echo ($recipe["title"]); ?></h3>
+                                        <p><?php echo ($recipe["servings"]); ?> Servings</p>
+                                        <p><?php echo ($recipe["cooktime"]); ?> Min</p>
+                                        <p><?php echo ($recipe["categories"]); ?></p>
+                                    </div>
+                                </a>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php else: ?>
+                        <p>No results found for "<?php echo htmlspecialchars($searchQuery); ?>"</p>
+                    <?php endif; ?>
+                <?php endif; ?>
+                
+
     </main>
     <footer></footer>
 </body>

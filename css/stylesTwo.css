@@ -113,6 +113,27 @@ a{
 .recipe-card:hover{
     transform: scale(1.1);
 }
+.recipe-card-search{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 20px;
+    gap: 20px;
+}
+.search{
+    margin-left: 40% ;
+    width: fit-content;
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 1vw;
+    padding: 15px;
+}
+.search-title{
+    display: block;
+    margin-left: 38%;
+}
+.search h2{
+    margin-left: 25%;
+}
 /*-----------------------------------------------About Page----------------------------------------------------------*/
 .abtcontent{
     display: flex; 
@@ -373,6 +394,24 @@ a{
         grid-column: 2 / span 2;
         width: 100%;
     }
+    .recipe-card-search{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin: 20px;
+        gap: 20px;
+    }
+    .search{
+        margin-left: 35% ;
+        width: fit-content;
+        background-color: var(--accent-color);
+        border: none;
+        border-radius: 1vw;
+        padding: 15px;
+    }
+    .search-title{
+        display: block;
+        margin-left: 32%;
+    }
 }
 
 @media (max-width: 856px) { /* Adjust max-width as needed */
@@ -387,6 +426,24 @@ a{
    .recipe-card img{
     max-width: 60vw;
    }
+   .recipe-card-search{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 20px;
+    gap: 20px;
+}
+.search{
+    margin-left: 40% ;
+    width: fit-content;
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 1vw;
+    padding: 15px;
+}
+.search-title{
+    display: block;
+    margin-left: 38%;
+}
 /*ABOUT*/
     .abtcontent{
         display: block;
@@ -438,6 +495,24 @@ a{
     .recipe-card img{
         max-width: 80vw;
     }
+    .recipe-card-search{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin: 20px;
+        gap: 20px;
+    }
+    .search{
+        margin-left: 25% ;
+        width: fit-content;
+        background-color: var(--accent-color);
+        border: none;
+        border-radius: 1vw;
+        padding: 15px;
+    }
+    .search-title{
+        display: block;
+        margin-left: 28%;
+    }
 /*ALL RECIPES*/
 .sidebar {
     width: 100%;
@@ -467,13 +542,13 @@ a{
 }
 .allrecipe-grid{
     grid-row-start: 2;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     margin: auto;
     column-gap: 15px;
     width: 80vw;
 }
 .recipe-card-small{
-    max-width: 30vw;
+    max-width: 60vw;
 }
 /*INDIVIDUAL RECIPE PAGE*/
 .ingredients{

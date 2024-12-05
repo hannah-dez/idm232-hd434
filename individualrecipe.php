@@ -71,6 +71,7 @@
             <?php
              }
             ?>
+            <!--ISsues on recipe pages: 28 incorrect imgs, 4&5 dont have step images, 34 the array wasn't broken up correctly-->
         </div>
             <?php 
                } else{ ?> 

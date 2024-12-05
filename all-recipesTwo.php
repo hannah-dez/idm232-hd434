@@ -81,7 +81,6 @@
        <?php } ?>
        </div> 
     </div>
-      
    </main>
     <footer></footer>
 </body>
