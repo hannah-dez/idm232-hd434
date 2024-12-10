@@ -56,41 +56,20 @@
         <div class="container">
        <!-- Sidebar -->
        <aside class="sidebar">
-           <h2>Filter Options</h2>
-           <div class="filter">
-               <label for="cuisine">Cuisine:</label>
-               <select id="cuisine">
-                   <option value="all">Cuisine</option>
-                   <option value="italian">Italian</option>
-                   <option value="mexican">Mexican</option>
-                   <option value="asian">Asian</option>
-               </select>
-           </div>
-           <div class="filter">
-               <label for="cook-time">Cook Time:</label>
-               <select id="cook-time">
-                   <option value="all">Cook-Time</option>
-                   <option value="less-than-30">Less than 30 min</option>
-                   <option value="30-60">30 - 60 min</option>
-                   <option value="more-than-60">More than 60 min</option>
-               </select>
-           </div>
-           <div class="filter">
-               <label for="serving-size">Serving Size:</label>
-               <select id="serving-size">
-                   <option value="all">Serving-Size</option>
-                   <option value="small">1-2</option>
-                   <option value="medium">3-4</option>
-                   <option value="large">5+</option>
-               </select>
-           </div>
-       </aside>
+           <h2>Chef's Top Tips:</h2>
+            <h3>1. Taste Test</h3>
+            <p>Always taste your dish at different stages of cooking to adjust seasonings and balance flavors. Remember, the food is for you, so feel free to tweak recipes to match your personal preferences and make it just right for your taste.</p>
+            <h3>2. Use Good Tools</h3>
+            <p>Good tools make cooking easier and improve the final result. Sharp knives and quality pans save time and help your food taste better.</p>
+            <h3>3. Don't crowd your pan</h3>
+            <p>Leaving space in the pan ensures even cooking and prevents steaming. This helps achieve a nice, crispy texture and better flavor.</p>
+        </aside>
        <div class="allrecipe-grid">
         <?php
             if (!empty($filtered_recipes)){
                 foreach($filtered_recipes as $recipe){ ?>
                 <a href="individualrecipe.php?id=<?php echo ($recipe ["id"])?>">
-            <div class="recipe-card-small recipe-search-result">
+            <div class="recipe-card-small">
                 <img src="<?php echo ($recipe["mainimg"])?>.webp">
                 <h3 class="recipe-title"><?php echo ($recipe ["title"])?></h3>
                 <p><?php echo ($recipe ["servings"])?> Servings</p>

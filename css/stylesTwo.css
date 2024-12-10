@@ -74,7 +74,7 @@ header {
 footer{
     height: 40px;
     background-color: var(--light-purple);
-    margin:none;
+    margin: 0;
     margin-top: 24px;
 }
 .page-heading{
@@ -106,7 +106,7 @@ footer{
 }
 a{
     color: black;
-    font-style: none;
+    font-style:normal;
     text-decoration: none;
     height: 100%;
 }
@@ -150,6 +150,14 @@ a{
     width: 40vw;
     margin-left: 5vw;
 }
+.case-study-btn{
+    width: fit-content;
+    height: auto;
+    background-color: var(--orange);
+    color: var(--dark-purple);
+    padding: 15px;
+    border-radius: 2vw;
+}
 /*--------------------------------------------All Recipes--------------------------------------------------------------*/
 
 .container {
@@ -165,6 +173,9 @@ a{
     gap: 20px; /* Space between recipe cards */
     grid-column: span 4; /* Ensures this section spans 5 columns of the grid */
 }
+aside{
+    display: block;
+}
 .sidebar {
     background-color: var(--orange);
     padding: 20px;
@@ -173,45 +184,30 @@ a{
     top: 0;
     height: 100vh;
     color: var(--dark-purple);
+    border-radius: 2vw;
+    display: block;
 }
 .sidebar h2 {
     margin-bottom: 20px;
+    margin-top: 0px;
 }
 
-.filter {
-    margin-bottom: 15px;
-    background-color: var(--orange);
-}
 .recipe-card-small{
     max-width: 20vw;
     background-color: white;
     border-radius: 1.1vw;
     align-items: center;
-    overflow: hidden;
+    overflow: visible;
     height: 100%;
     margin: 10px;
 }
 .recipe-card-small p{
+    display: block;
     align-self: center;
     margin: 10px;
 }
 .recipe-card-small img{
     max-width: 100%;
-}
-/* Sidebar styles */
-.sidebar2 {
-    width: 25%;
-    background-color: var(--orange);
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    color: var(--dark-purple);
-    margin-right: 20px;
-}
-.sidebar2 h2 {
-    margin-bottom: 20px;
 }
 
 .recipe-content{
@@ -229,9 +225,6 @@ a{
     margin-top: 20vh;
 }
 
-.recipe-search-result{
-    height: 50%;
-}
 /*----------------------------------------------Individual Recipe Page---------------------------------------------------*/
 .recipe-container{
     display: grid;
@@ -302,6 +295,13 @@ a{
     margin-bottom: 50%;
     justify-self: center;
 }
+/*---------------------------------------------------CASE STUDY PAGE--------------------------*/
+.case-study{
+    width: 80%;
+    margin: auto;
+    display: block;
+}
+
 /*------------------------------------------------Home Page----------------------------------------------------------*/
 @media(max-width:1145px){
     .recipe-card{
@@ -321,42 +321,14 @@ a{
         width: 50vw;
     }
 /*ALL RECIPES*/
-.sidebar {
-    width: 100%;
-    height: 10vh; 
-    display: flex; 
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-    position: sticky;
-    top: 0;
-    z-index: 1000; 
-    background-color: var(--orange);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
-}
-.sidebar2 {
-    width: 100%;
-    height: 40vh; 
-    display: flex; 
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-    position: sticky;
-    top: 0;
-    z-index: 1000; 
-    background-color: var(--orange);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
 
 .container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
-.sidebar{
-    align-self: start;
-    justify-self: center;
-    grid-column: 1 / span 3;
+.container aside.sidebar{
+    display: none;
 }
 .allrecipe-grid{
     grid-row-start: 2;
@@ -467,10 +439,6 @@ a{
         margin: 50px auto;
     }
 /*All Recipes*/
-.sidebar {
-    border-right: none; 
-    border-bottom: 2px solid #ccc; 
-}
 .allrecipe-grid{
     grid-row-start: 2;
     grid-template-columns: repeat(2, 1fr);
@@ -525,17 +493,6 @@ a{
         margin-left: 28%;
     }
 /*ALL RECIPES*/
-.sidebar {
-    width: 100%;
-    display: flex; 
-    justify-content: space-around;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000; 
-    background-color: var(--orange);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
 .filter {
     flex: 1;
     margin: 0 5px;
