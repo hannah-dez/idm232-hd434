@@ -100,6 +100,7 @@ footer{
 }
 .recipe-card p{
     margin: 10px;
+    justify-self: center;
 }
 .recipe-title{
     margin-left: 10px;
@@ -153,11 +154,16 @@ a{
 .case-study-btn{
     width: fit-content;
     height: auto;
-    background-color: var(--orange);
-    color: var(--dark-purple);
+    background-color:var(--dark-purple);
+    color: var(--page-color);
     padding: 15px;
     border-radius: 2vw;
+    border: none;
+    display: block;
+    margin: auto;
+    cursor: pointer;
 }
+
 /*--------------------------------------------All Recipes--------------------------------------------------------------*/
 
 .container {
@@ -172,6 +178,12 @@ a{
     grid-template-columns: repeat(4, 1fr); /* 5 columns for recipe cards */
     gap: 20px; /* Space between recipe cards */
     grid-column: span 4; /* Ensures this section spans 5 columns of the grid */
+}
+button.submit-button{
+    background-color: var(--dark-purple);
+    color: var(--page-color);
+    border-radius: 2vw;
+    padding: 10px;
 }
 aside{
     display: block;
@@ -197,13 +209,14 @@ aside{
     background-color: white;
     border-radius: 1.1vw;
     align-items: center;
-    overflow: visible;
+    overflow: hidden;
     height: 100%;
     margin: 10px;
 }
 .recipe-card-small p{
     display: block;
-    align-self: center;
+    align-self: bottom;
+    justify-self: center;
     margin: 10px;
 }
 .recipe-card-small img{
@@ -238,6 +251,7 @@ aside{
     color: var(--page-color);
     padding: 10px;
     border-radius: 4vw;
+    top: 10px;
     position: sticky;
     text-align: center;
     height: fit-content;
@@ -297,11 +311,24 @@ aside{
 }
 /*---------------------------------------------------CASE STUDY PAGE--------------------------*/
 .case-study{
-    width: 80%;
+    width: 60%;
     margin: auto;
     display: block;
 }
-
+.case-studyimg{
+    width: 40vw;
+    height: auto;
+    display: block;
+    margin: auto;
+    background-color: var(--light-purple);
+    padding: 10px;
+}
+.case-study h1{
+    font-size: 3.5rem;
+    line-height: normal;
+    color: var(--dark-purple);
+    margin-left: 0;
+}
 /*------------------------------------------------Home Page----------------------------------------------------------*/
 @media(max-width:1145px){
     .recipe-card{
@@ -350,7 +377,13 @@ aside{
 .step-img{
     width: 90%;
 }
-
+/*Case study page*/
+.case-study{
+    width: 80%;
+}
+.case-studyimg{
+    width: 70%;
+}
 }
 
 @media(max-width:900px){
@@ -362,6 +395,7 @@ aside{
         grid-column:1 / span 3;
         justify-self: center;
         width: 40%;
+        position: relative;
     }
     .recipe-heading{
         grid-column: 1 / span 3;
@@ -462,6 +496,9 @@ aside{
     .ingredients{
         width: 60vw;
     }
+    .case-study h1{
+        font-size:2rem;
+    }
 }
 @media (max-width:588px){
     h2{
@@ -514,6 +551,7 @@ aside{
     margin: auto;
     column-gap: 15px;
     width: 80vw;
+    justify-content: center;
 }
 .recipe-card-small{
     max-width: 60vw;

@@ -46,9 +46,7 @@
                         <img src="<?php echo ($recipe ["mainimg"])?>.webp">
                         <h3 class="recipe-title"><?php echo ($recipe ["title"]) ?></h3>
                         <p><?php echo( $short_description) ?></p>
-                        <p><?php echo ($recipe ["servings"])?> Servings</p>
-                        <p><?php echo ($recipe ["cooktime"])?> Min</p>
-                        <p><?php echo ($recipe ["categories"])?></p>
+                        <p><?php echo ($recipe ["servings"])?> Servings | <?php echo ($recipe ["cooktime"])?> Min | <?php echo ($recipe ["categories"])?></p>
                     </div>
                 </a>
             <?php } ?> 

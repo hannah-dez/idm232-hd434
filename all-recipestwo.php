@@ -72,9 +72,7 @@
             <div class="recipe-card-small">
                 <img src="<?php echo ($recipe["mainimg"])?>.webp">
                 <h3 class="recipe-title"><?php echo ($recipe ["title"])?></h3>
-                <p><?php echo ($recipe ["servings"])?> Servings</p>
-                <p><?php echo ($recipe ["cooktime"])?> Min</p>
-                <p><?php echo ($recipe ["categories"])?></p>
+                <p><?php echo ($recipe ["servings"])?> Servings | <?php echo ($recipe ["cooktime"])?> Min | <?php echo ($recipe ["categories"])?></p>
             </div>
         </a>
         <?php } } 
@@ -88,9 +86,7 @@
                         <div class="recipe-card-small">
                             <img src="<?php echo ($recipe["mainimg"])?>.webp">
                             <h3 class="recipe-title"><?php echo ($recipe ["title"])?></h3>
-                            <p><?php echo ($recipe ["servings"])?> Servings</p>
-                            <p><?php echo ($recipe ["cooktime"])?> Min</p>
-                            <p><?php echo ($recipe ["categories"])?></p>
+                            <p><?php echo ($recipe ["servings"])?> Servings | <?php echo ($recipe ["cooktime"])?> Min | <?php echo ($recipe ["categories"])?></p>
                         </div>
                     </a>
                    <?php } 
