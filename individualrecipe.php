@@ -17,21 +17,26 @@
             <a class="button" href="./all-recipestwo.php">All Recipes</a>
         </div>
     </header>
-    <?php
-       include 'includes/db-connection.php';
 
-        $recipe_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+    <!--PHP Set up Start-->
+        <?php
+        include 'includes/db-connection.php';
 
-        if ($recipe_id > 0) {
+            $recipe_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-            $sql_query = "SELECT * FROM recipes WHERE id = $recipe_id";
-            $result = mysqli_query($connection, $sql_query);
+            if ($recipe_id > 0) {
 
-            if ($result && mysqli_num_rows($result) > 0) {
-                $recipe = mysqli_fetch_assoc($result);
+                $sql_query = "SELECT * FROM recipes WHERE id = $recipe_id";
+                $result = mysqli_query($connection, $sql_query);
 
-        ?>
+                if ($result && mysqli_num_rows($result) > 0) {
+                    $recipe = mysqli_fetch_assoc($result);
+
+            ?>
+    <!--PHP End-->
+
         <div class="recipe-container">
+            <!--Side bar-->
             <div class="ingredients">
                 <h3>Ingredients</h3>
                 <ul>
@@ -44,33 +49,37 @@
                 </ul>
                 <p>Cook Time: <?php echo ($recipe ["cooktime"])?>Min | <?php echo ($recipe ["servings"])?> Servings</p>
             </div>
-            <?php
-            $step_images = explode("*", $recipe ["stepimg"]);
-            $steps_array = explode("*", $recipe ["steps"]);
-            ?>
+
+                <?php
+                $step_images = explode("*", $recipe ["stepimg"]);
+                $steps_array = explode("*", $recipe ["steps"]);
+                ?>
+
+            <!--Recipe Start Info-->
             <div class="recipe-heading">
                 <h2><?php echo ($recipe ["title"])?></h2>
-                <h3><?php echo ($recipe ["subtitle"])?></h3>
-                <img alt="Main Image" class="recipe-head-img" src="<?php echo ($recipe ["mainimg"])?>.webp">
-                <p class="description-text"><?php echo ($recipe ["description"])?></p>
-                <div class="recipe-seperator"></div>
+                    <h3><?php echo ($recipe ["subtitle"])?></h3>
+                        <img alt="Main Image" class="recipe-head-img" src="<?php echo ($recipe ["mainimg"])?>.webp">
+                        <p class="description-text"><?php echo ($recipe ["description"])?></p>
+                        <div class="recipe-seperator"></div>
             </div>
+
+            <!--Recipe Steps-->
                 <?php 
                     foreach ($steps_array as $index => $step){
                         $step_parts = explode ("--", $step);
                         $step_title = isset($step_parts[0]) ? trim($step_parts [0]) : '';
                         $step_description = isset($step_parts[1]) ? trim($step_parts[1]) : '';
                         $step_image = isset($step_images[$index]) && !empty($step_images[$index])  ? trim($step_images [$index]): $recipe["mainimg"];
-                     ?>
-                <img alt="Images of steps" class="step-img step<?php echo $index + 1; ?>" src="<?php echo ($step_image);?>.webp" >
-            <div class="step-text step<?php echo $index + 1; ?>">
-                <h3><?php echo ($step_title);?></h3>
-                <p><?php echo ($step_description);?></p>    
-            </div>
-            <?php
-             }
-            ?>
-            <!--ISsues on recipe pages: 28 incorrect imgs, 4&5 dont have step images, 34 the array wasn't broken up correctly-->
+                ?>
+                    <img alt="Images of steps" class="step-img step<?php echo $index + 1; ?>" src="<?php echo ($step_image);?>.webp" >
+                    <div class="step-text step<?php echo $index + 1; ?>">
+                        <h3><?php echo ($step_title);?></h3>
+                        <p><?php echo ($step_description);?></p>    
+                    </div>
+                <?php
+                }
+                ?>
         </div>
             <?php 
                } else{ ?> 

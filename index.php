@@ -7,23 +7,24 @@
     <link rel="stylesheet" href="./css/stylesTwo.css">
 </head>
 <body>
-<!--PHPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP-->
-    <?php
-    // Include the database connection
-    include 'includes/db-connection.php';
+    <!--PHP Start-->
+        <?php
+        // Include the database connection
+        include 'includes/db-connection.php';
 
-    // Query to fetch the first row
-    $sql = "SELECT * FROM recipes LIMIT 3";
-    $result = $connection->query($sql);
-    $all_recipes = [];
+        // Query to fetch the first row
+        $sql = "SELECT * FROM recipes LIMIT 3";
+        $result = $connection->query($sql);
+        $all_recipes = [];
 
-    if ($result && mysqli_num_rows($result)>0) //if you have results more than zero it shows
-    {
-        while($row = mysqli_fetch_assoc($result)){
-            $all_recipes[] = $row;
+        if ($result && mysqli_num_rows($result)>0) //if you have results more than zero it shows
+        {
+            while($row = mysqli_fetch_assoc($result)){
+                $all_recipes[] = $row;
+            }
         }
-    }
-    ?>
+        ?>
+    <!--PHP End-->
     <header>
         <div class="header-content">
             <a href="./index.php" style="text-decoration: none; color: inherit;"><h1>Cook<br>With<br>Me</h1></a>
@@ -37,6 +38,8 @@
     <main class="homepage">
         <h2 class="page-heading">Top Recipes</h2>
         <div class="homepage-grid">
+   
+         <!--PHP ForEach Loop-->
             <?php 
             foreach($all_recipes as $recipe){ 
                 $short_description = strlen($recipe["description"]) > 200 ? substr($recipe["description"], 0, 200) . "..." : $recipe["description"];
@@ -50,6 +53,8 @@
                     </div>
                 </a>
             <?php } ?> 
+            <!--PHP ForEach End-->
+
         </div>
     </main>
     <footer></footer>

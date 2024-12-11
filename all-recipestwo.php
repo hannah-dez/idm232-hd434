@@ -7,36 +7,39 @@
     <link rel="stylesheet" href="./css/stylesTwo.css">
 </head>
 <body>
-<?php
-    // Include the database connection
-    include 'includes/db-connection.php';
 
-    // Query to fetch the first row
-    $sql = "SELECT * FROM recipes";
-    $result = $connection->query($sql);
-    
-    $search_query = isset($_GET['search']) ? trim($_GET['search']) : '';
-    $filtered_recipes = [];
-    $all_recipes = [];
+<!--PHP Set Up-->
+    <?php
+        // Include the database connection
+        include 'includes/db-connection.php';
 
-    if ($result && mysqli_num_rows($result)>0) //if you have results more than zero it shows
-    {
-        while($row = mysqli_fetch_assoc($result)){
-           $matches_search = !$search_query || (
-                stripos($row ['title'], $search_query) !== false ||
-                stripos($row ['subtitle'], $search_query) !== false ||
-                stripos($row ['description'], $search_query) !== false ||
-                stripos($row ['cooktime'], $search_query) !== false
-           );
-           if (empty($search_query)){
-             $all_recipes[] = $row;
-           }
-            else if($matches_search) {
-                $filtered_recipes [] =$row;
+        // Query to fetch the first row
+        $sql = "SELECT * FROM recipes";
+        $result = $connection->query($sql);
+        
+        $search_query = isset($_GET['search']) ? trim($_GET['search']) : '';
+        $filtered_recipes = [];
+        $all_recipes = [];
+
+        if ($result && mysqli_num_rows($result)>0) //if you have results more than zero it shows
+        {
+            while($row = mysqli_fetch_assoc($result)){
+            $matches_search = !$search_query || (
+                    stripos($row ['title'], $search_query) !== false ||
+                    stripos($row ['subtitle'], $search_query) !== false ||
+                    stripos($row ['description'], $search_query) !== false ||
+                    stripos($row ['cooktime'], $search_query) !== false
+            );
+            if (empty($search_query)){
+                $all_recipes[] = $row;
+            }
+                else if($matches_search) {
+                    $filtered_recipes [] =$row;
+                }
             }
         }
-    }
     ?>
+
     <header>
         <div class="header-content">
             <a href="./index.php" style="text-decoration: none; color: inherit;"><h1>Cook<br>With<br>Me</h1></a>
@@ -63,6 +66,8 @@
             <h3>3. Don't crowd your pan</h3>
             <p>Leaving space in the pan ensures even cooking and prevents steaming. This helps achieve a nice, crispy texture and better flavor.</p>
         </aside>
+
+        <!--Search Results Loop-->
        <div class="allrecipe-grid">
         <?php
             if (!empty($filtered_recipes)){
@@ -74,6 +79,8 @@
                 <p><?php echo ($recipe ["servings"])?> Servings | <?php echo ($recipe ["cooktime"])?> Min | <?php echo ($recipe ["categories"])?></p>
             </div>
         </a>
+        
+          <!--Show All Loop-->
         <?php } } 
                 else if (!empty($search_query) && empty($filtered_recipes)) { 
                     ?>
