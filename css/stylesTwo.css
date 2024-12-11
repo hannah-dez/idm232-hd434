@@ -16,6 +16,7 @@
 }
 
 /*------------------------------------------------------All Pages + Heading------------------------------------------------------------------*/
+
 body {
     background-color: var(--page-color);
     margin: 0;
@@ -86,11 +87,12 @@ footer{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* This creates multiple columns */
     grid-template-rows: auto; /* Let the rows adjust based on content */
-    margin: 5vw;
+    margin: auto 5vw;
     gap: 5vw;
+    max-width: 2200px;
 }
 .recipe-card{
-    max-width: 30vw;
+    max-width: 25vw;
     background-color: white;
     border-radius: 1.5vw;
     overflow: hidden;
@@ -144,6 +146,7 @@ a{
     justify-content: center;
     margin: 20px;
     margin-top: 19vh;
+    max-width: 2000px;
 }
 .abtimg{
     width: 30vw;
@@ -337,6 +340,56 @@ aside{
     margin-left: 0;
 }
 /*------------------------------------------------Home Page----------------------------------------------------------*/
+@media (min-width: 2300px){
+    /*ALL*/
+    h2{
+        font-size: 4rem;
+    }
+    h3{
+        font-size: 2rem;
+    }
+    p{
+        font-size: 1.5rem;
+    }
+    li{
+        font-size: 1.5rem;
+    }
+    /*------Home Page---------*/
+    .headimg{
+        width: 40vw;
+    }
+    main.homepage{
+        margin: 0;
+    }
+    /*--Individual Recipe Page--*/
+    .recipe-container{
+        grid-template-columns: 10vw 10vw 30vw;
+    }
+}
+@media (min-width: 1600px){
+    /*------Home Page---------*/
+    h1{
+        font-size: 12rem;
+        line-height: 11rem;
+    }
+main{
+        max-width: 2300px;
+        margin: auto;
+    }
+.homepage-grid{
+    grid-template-columns: repeat(3, 1fr);
+}
+/*-------Individual Recipe Page--------*/
+.recipe-container{
+    max-width: 2200px;
+    grid-template-columns: 15vw 15vw 35vw;
+    margin: auto;
+}
+.ingredients{
+    border-radius: 1vw;
+}
+}
+
 @media(max-width:1145px){
     .recipe-card{
         max-width: 40vw;
