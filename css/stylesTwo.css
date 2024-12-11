@@ -60,7 +60,7 @@ header {
     padding: 10px;
 }
 
-.menu button {
+.button {
     font-family: menutitlefont; 
     text-decoration: none; 
     color: black; 
@@ -69,6 +69,7 @@ header {
     border: none;
     padding: 10px;
     cursor: pointer;
+    margin: 24px;
 }
 
 footer{
@@ -122,6 +123,7 @@ a{
 }
 .search{
     margin-left: 15px ;
+    margin-top: 10px;
     width: fit-content;
     background-color: var(--accent-color);
     border: none;
@@ -184,6 +186,7 @@ button.submit-button{
     color: var(--page-color);
     border-radius: 2vw;
     padding: 10px;
+    border: none;
 }
 aside{
     display: block;
@@ -215,7 +218,7 @@ aside{
 }
 .recipe-card-small p{
     display: block;
-    align-self: bottom;
+    align-self: end;
     justify-self: center;
     margin: 10px;
 }

@@ -40,16 +40,15 @@
     <header>
         <div class="header-content">
             <a href="./index.php" style="text-decoration: none; color: inherit;"><h1>Cook<br>With<br>Me</h1></a>
-            <img class="headimg" src="./content/AdobeStock_235582346.jpeg">
+            <img class="headimg" src="./content/AdobeStock_235582346.jpeg" alt="image of vegetables being sauteed in a pan">
         </div>
         <div class="menu">
-            <a href="./abouttwo.html"><button>About</button></a>
-            <a href="./all-recipestwo.php"><button>All Recipes</button></a>
+            <a class="button" href="./abouttwo.html">About</a>
+            <a class="button" href="./all-recipestwo.php">All Recipes</a>
             <form   action="all-recipestwo.php" method="get">
                 <input type="text" class="search-input search" name="search" placeholder="Search...">
                 <button class="submit-button" type="submit">SEARCH</button>
             </form>
-        </div>
         </div>
     </header>
     <main>
@@ -70,7 +69,7 @@
                 foreach($filtered_recipes as $recipe){ ?>
                 <a href="individualrecipe.php?id=<?php echo ($recipe ["id"])?>">
             <div class="recipe-card-small">
-                <img src="<?php echo ($recipe["mainimg"])?>.webp">
+                <img alt="Main recipe Image" src="<?php echo ($recipe["mainimg"])?>.webp">
                 <h3 class="recipe-title"><?php echo ($recipe ["title"])?></h3>
                 <p><?php echo ($recipe ["servings"])?> Servings | <?php echo ($recipe ["cooktime"])?> Min | <?php echo ($recipe ["categories"])?></p>
             </div>
@@ -84,7 +83,7 @@
                 foreach($all_recipes as $recipe){ ?>
                     <a href="individualrecipe.php?id=<?php echo ($recipe ["id"])?>">
                         <div class="recipe-card-small">
-                            <img src="<?php echo ($recipe["mainimg"])?>.webp">
+                            <img alt="Main recipe image" src="<?php echo ($recipe["mainimg"])?>.webp">
                             <h3 class="recipe-title"><?php echo ($recipe ["title"])?></h3>
                             <p><?php echo ($recipe ["servings"])?> Servings | <?php echo ($recipe ["cooktime"])?> Min | <?php echo ($recipe ["categories"])?></p>
                         </div>

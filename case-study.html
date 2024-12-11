@@ -10,11 +10,11 @@
     <header>
         <div class="header-content">
             <a href="./index.php" style="text-decoration: none; color: inherit;"><h1>Cook<br>With<br>Me</h1></a>
-            <img class="headimg" src="./content/AdobeStock_235582346.jpeg">
+            <img class="headimg" src="./content/AdobeStock_235582346.jpeg" alt="image of vegetables being sauteed in a pan">
         </div>
         <div class="menu">
-            <a href="./abouttwo.html"><button>About</button></a>
-            <a href="./all-recipestwo.php"><button>All Recipes</button></a>
+            <a href="./abouttwo.html" class="button">About</a>
+            <a href="./all-recipestwo.php" class="button">All Recipes</a>
         </div>
     </header>
     <main>
@@ -44,10 +44,10 @@
             <p>This project sought to teach us as students valuable php skills. The website itself is created in order to create a user-friendly cookbook that can be referenced and used by anyone with ease. To measure success for this project, I set out to complete all project parameters and create a friendly design that was inviting and helpful to the user.  I sought out to work with my resources, the class lectures, and my peers, to accomplish this goal. This was an individual project, but we were encouraged as a class to work together to help each other sort our data and work through our understanding of php code. </p>
         <h2>Process and Insight</h2>
             <h3>Design</h3>
-                <img class="case-studyimg" src="/content/StyleGuide.png" alt="image of style guide">
+                <img class="case-studyimg" src="./content/StyleGuide.png" alt="image of style guide">
                 <p>I started with the style guide for this project. I was inspired by an image on adobe stock that I used in my project. Wanting to stray from my usual color choices, I was drawn to the purples and oranges in the image. I had debated whether to use orange and green or orange and purple. Green was more generally associated with food; however I was really attached to the dark purple and wanted to branch out from general food branding. </p>
                 <p>I wanted to create a functional layout for this website that would help all users. I highlighted the idea of using a sticky sidebar that would stay next to the recipe. I was inspired by my own experience with recipe sites, more specifically my frustration with having to constantly scroll up to see how much of which ingredient I need to add. With this layout I removed the need to scroll as the user will have it readily available on the side. Overall, I went for a simple layout that would utilize grids as I knew I would have to execute it in my code. </p>
-                <img class="case-studyimg" src="/content/LowFidelityImg.png" alt="image of prototype">
+                <img class="case-studyimg" src="./content/LowFidelityImg.png" alt="image of prototype">
                 <p>Finally, I developed a mid-fidelity prototype so I could better picture my website. Most features translated over well from the wireframes, but I did have to make some adjustments. I could only have the sticky ingredients section for the desktop/tablet mode. This is because when it got down to mobile sizes, the vertical screen real estate would have been consumed by the ingredients. I decided to prioritize the users reading experience over the ease of scrolling when it came to mobile design and removed the sticky property at smaller screen sizes. I enjoyed using my style guide and bringing the website to life. This step really helped me contextualize what my site would look like and helped me visualize what I wanted to later recreate in my code. </p>
             <h3>Data Organization</h3>
                 <p>My class worked as a group to convert the recipe PDFs into a shared table. We each assigned ourselves three to five recipes to bring into a shared excel sheet and then got to work. Using delimiters, we separated out steps and ingredients. However, on this shared table we did not have images. My friend Lucia had gone through and cleaned all of the images- resizing them to the same size. She shared the content folder with us, and we were able to download them. I went through and renamed all of the image files to “HeroImg” and then “Step#” before dragging the folders into my content folder. Then I downloaded a copy of the existing table and added two more columns: the mainimg column and the stepimg column. I used links to the images in my content folder for these columns. For the stepimg column, I included all links to the number of steps and inserted delimiters so they would be separated. </p>
@@ -60,11 +60,11 @@
                 <p>I had completed the project requirements at this point, but I knew there could still be improvements. I spent the rest of the timeline tweaking the CSS, cleaning up my code, and ensuring that my deliverable would be as complete and thorough as possible. If I had had more time I would have liked to add a login feature, or a feature to add new recipes. Those possible future developments aside, I am fairly proud of my final result.</p>
         <h2>The Solution</h2>
             <p>This site is my final project. I am extremely proud of how it turned out and what I was able to accomplish within the ten-week timeframe. </p>
-            <img class="case-studyimg" src="/content/homePage_image.png" alt="image of index page">
+            <img class="case-studyimg" src="./content/homePage_image.png" alt="image of index page">
             <p>I wanted a strong header with defining colors to set a fun and funky tone for the site. I also wanted to keep the navigation as straightforward as possible so that a user wouldn't get lost. I decided to add a “favorites” section so I could display a different type of recipe card and add a purpose to the home page beyond a welcome message</p>
-            <img class="case-studyimg" src="/content/allrecipes_page.png" alt="image of the all recipes page">
+            <img class="case-studyimg" src="./content/allrecipes_page.png" alt="image of the all recipes page">
             <p>Using recipe cards made the most sense structurally as it is easy to read and navigate for users. This also aided my PHP as I could pull in specific information into each section and have it displayed in a visually pleasing way.  Initially I intended the sidebar to be a filter section, however with my time constraints and other coursework, I decided against it. Instead, I used that created space to show off top chefs, culinary articles, and other information that the user may be interested in or find value in.</p>
-            <img class="case-studyimg" src="/content/searchResults_page.png" alt="Image of recipe results"> 
+            <img class="case-studyimg" src="./content/searchResults_page.png" alt="Image of recipe results"> 
             <p>I wanted the message to be prominent in the no results. I carried over the same styling, but had to adjust the height of each recipe div. This was due to the grid layout I have set up. If there was only one row the recipe card would take up a larger height than needed, creating excess white space. So, I simply added another class and limited the height to 50%. This worked well and carried over to the different sized screens.</p>
         <h2>Results</h2>
             <p>This project was a success as I achieved the primary objectives: creating a fully responsive recipe website that pulls data from a MySQL database and displays it using PHP. The site meets all the project requirements, including a user-friendly interface for browsing and searching recipes. I learned a lot through this project about using my resources, rethinking certain coding logic, and gained general coding skills. From this project I also gained the important base level knowledge of developers, so that when I design and prototype I can do so in a way that is achievable by developers. I also learned that I prefer to be involved in UI/UX with design over development. However, I see the value and appreciate the lessons I learned during this project.</p>

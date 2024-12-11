@@ -10,11 +10,11 @@
     <header>
         <div class="header-content">
             <a href="./index.php" style="text-decoration: none; color: inherit;"><h1>Cook<br>With<br>Me</h1></a>
-            <img class="headimg" src="./content/AdobeStock_235582346.jpeg">
+            <img class="headimg" src="./content/AdobeStock_235582346.jpeg" alt="image of vegetables being sauteed in a pan">
         </div>
         <div class="menu">
-            <a href="./abouttwo.html"><button>About</button></a>
-            <a href="./all-recipestwo.php"><button>All Recipes</button></a>
+            <a class="button" href="./abouttwo.html">About</a>
+            <a class="button" href="./all-recipestwo.php">All Recipes</a>
         </div>
     </header>
     <?php
@@ -42,8 +42,7 @@
                             <li><?php echo $ingredient; ?></li>
                     <?php endforeach; ?>
                 </ul>
-                <p>Cook Time: <?php echo ($recipe ["cooktime"])?>Min</p>
-                <p><?php echo ($recipe ["servings"])?> Servings</p>
+                <p>Cook Time: <?php echo ($recipe ["cooktime"])?>Min | <?php echo ($recipe ["servings"])?> Servings</p>
             </div>
             <?php
             $step_images = explode("*", $recipe ["stepimg"]);
@@ -52,7 +51,7 @@
             <div class="recipe-heading">
                 <h2><?php echo ($recipe ["title"])?></h2>
                 <h3><?php echo ($recipe ["subtitle"])?></h3>
-                <img class="recipe-head-img" src="<?php echo ($recipe ["mainimg"])?>.webp">
+                <img alt="Main Image" class="recipe-head-img" src="<?php echo ($recipe ["mainimg"])?>.webp">
                 <p class="description-text"><?php echo ($recipe ["description"])?></p>
                 <div class="recipe-seperator"></div>
             </div>
@@ -63,7 +62,7 @@
                         $step_description = isset($step_parts[1]) ? trim($step_parts[1]) : '';
                         $step_image = isset($step_images[$index]) && !empty($step_images[$index])  ? trim($step_images [$index]): $recipe["mainimg"];
                      ?>
-                <img class="step-img step<?php echo $index + 1; ?>" src="<?php echo ($step_image);?>.webp">
+                <img alt="Images of steps" class="step-img step<?php echo $index + 1; ?>" src="<?php echo ($step_image);?>.webp" >
             <div class="step-text step<?php echo $index + 1; ?>">
                 <h3><?php echo ($step_title);?></h3>
                 <p><?php echo ($step_description);?></p>    
