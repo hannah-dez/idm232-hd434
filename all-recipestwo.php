@@ -74,7 +74,7 @@
                 foreach($filtered_recipes as $recipe){ ?>
                 <a href="individualrecipe.php?id=<?php echo ($recipe ["id"])?>">
             <div class="recipe-card-small recipe-card-result">
-                <img alt="Main recipe Image" src="<?php echo ($recipe["mainimg"])?>.webp">
+                <img alt="Main recipe Image" src="<?php echo ($recipe["mainimg"])?>.webp" loading="lazy">
                 <h3 class="recipe-title"><?php echo ($recipe ["title"])?></h3>
                 <p><?php echo ($recipe ["servings"])?> Servings | <?php echo ($recipe ["cooktime"])?> Min | <?php echo ($recipe ["categories"])?></p>
             </div>
