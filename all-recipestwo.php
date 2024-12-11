@@ -73,13 +73,13 @@
             if (!empty($filtered_recipes)){
                 foreach($filtered_recipes as $recipe){ ?>
                 <a href="individualrecipe.php?id=<?php echo ($recipe ["id"])?>">
-            <div class="recipe-card-small">
+            <div class="recipe-card-small recipe-card-result">
                 <img alt="Main recipe Image" src="<?php echo ($recipe["mainimg"])?>.webp">
                 <h3 class="recipe-title"><?php echo ($recipe ["title"])?></h3>
                 <p><?php echo ($recipe ["servings"])?> Servings | <?php echo ($recipe ["cooktime"])?> Min | <?php echo ($recipe ["categories"])?></p>
             </div>
         </a>
-        
+
           <!--Show All Loop-->
         <?php } } 
                 else if (!empty($search_query) && empty($filtered_recipes)) { 

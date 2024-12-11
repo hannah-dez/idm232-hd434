@@ -240,7 +240,9 @@ aside{
     margin-bottom: 60vh;
     margin-top: 20vh;
 }
-
+.recipe-card-result{
+    height: 30vw;
+}
 /*----------------------------------------------Individual Recipe Page---------------------------------------------------*/
 .recipe-container{
     display: grid;
@@ -367,6 +369,9 @@ aside{
     column-gap: 15px;
     width: 80vw;
 }
+.recipe-card-result{
+    height: 38vw;
+}
 /*RECIPE PAGE*/
 .recipe-heading p{
     width: 90%;
@@ -486,6 +491,9 @@ aside{
 .recipe-card-small{
     max-width: 30vw;
 }
+.recipe-card-result{
+    height: 48vw;
+}
 /*Individual Recipe Page*/
 .invalid-message{
     margin-bottom: 70%;
@@ -501,6 +509,9 @@ aside{
     }
     .case-study h1{
         font-size:2rem;
+    }
+    .recipe-card-result{
+        height: 54vw;
     }
 }
 @media (max-width:588px){
@@ -558,6 +569,9 @@ aside{
 }
 .recipe-card-small{
     max-width: 60vw;
+}
+.recipe-card-result{
+    height: 100%;
 }
 /*INDIVIDUAL RECIPE PAGE*/
 .ingredients{
